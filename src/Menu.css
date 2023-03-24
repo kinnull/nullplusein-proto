@@ -1,0 +1,14 @@
+.overlay-close{
+    visibility: visible;
+    left: 0;
+}
+
+.btn-color{
+    background: #162C13;
+    transition: 1s cubic-bezier(1, 0, 0, 1.01);
+}
+
+.disable{
+    background: none;
+   
+}

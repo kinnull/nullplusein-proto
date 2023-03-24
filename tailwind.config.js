@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'Melno': "Menlo Regular"
+      },
+      colors:{
+        'pureGreen' : "#162C13",
+        'lightGreen' : "#B7D04E"
+      }
+    },
   },
   plugins: [],
 };
