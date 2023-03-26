@@ -1,6 +1,6 @@
 # Nullpluseein Prototype
 
-## [Nullplusein festival prototype page 💥](https://mkosir.github.io/react-parallax-tilt)
+## [Nullplusein festival prototype page 💥]
 
 ## Run
 
