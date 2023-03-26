@@ -1,6 +1,6 @@
 # Nullpluseein Prototype
 
-## [Nullplusein festival prototype page 💥](https://https://null-five.vercel.app/)
+## [Nullplusein festival prototype page 💥](null-five.vercel.app/)
 
 ## Run
 
