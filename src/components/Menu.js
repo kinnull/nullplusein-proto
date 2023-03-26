@@ -1,73 +1,143 @@
 import React from "react";
-import nullPlusLogo from "../images/nullplusein-logo.png"
-import "../../src/Menu.css"
+import nullPlusLogo from "../images/nullplusein-logo.png";
+import "../../src/Menu.css";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 
+export default function Menu() {
+  let titleHeading = useRef(null);
 
-export default function Menu(){
-    const [isColor, setColor] = React.useState(true)
-    const [isActive, setActive] = React.useState(false)
-    const [isDisable, setDisable] = React.useState(false)
-    const navBtn = (e) => {
-        e.preventDefault()
-        setActive(!isActive)
-        setColor(!isColor)
-        setDisable(!isDisable)
-    }
+  useEffect(() => {
+    const title = titleHeading;
 
-   
+    gsap.to(title, {
+      duration: 1.5,
+      opacity: 1,
+      y: 0,
+      stagger: 1,
+      ease: "power3.inOut",
+    });
+  });
 
+  const [isColor, setColor] = React.useState(true);
+  const [isActive, setActive] = React.useState(false);
+  const [isDisable, setDisable] = React.useState(false);
+  const navBtn = (e) => {
+    e.preventDefault();
+    setActive(!isActive);
+    setColor(!isColor);
+    setDisable(!isDisable);
+  };
 
-   
+  let links = [
+    { id: "0", name: "Programm", link: "/" },
+    { id: "0", name: "Expert*innen", link: "/" },
+    { id: "0", name: "Über uns", link: "/" },
+    { id: "0", name: "Kontakt", link: "/" },
+    { id: "0", name: "Archiv", link: "/" },
+  ];
 
+  return (
+    <nav className="mx-[19px]">
+      <div>
+        <div className="flex items-center justify-between">
+          <div className="logo-img h-[86px] w-[100px] md:h-[113px] md:w-[150px]">
+            <img
+              className="w-[140px]"
+              src={nullPlusLogo}
+              alt="nullplusein logo"
+            />
+          </div>
+          <div
+            className={` grid-btn fixed right-5 z-20 grid cursor-pointer grid-cols-3 grid-rows-3 gap-1 md:grid lg:hidden`}
+            onClick={navBtn}
+          >
+            <div
+              className={`${
+                isColor ? "btn-color" : null
+              } h-2 w-2 rounded-full bg-white`}
+            ></div>
+            <div
+              className={`${isColor ? "btn-color" : null} ${
+                isDisable ? "disable" : null
+              }bg-white h-2 w-2 rounded-full`}
+            ></div>
+            <div
+              className={`${
+                isColor ? "btn-color" : null
+              } h-2 w-2 rounded-full bg-white`}
+            ></div>
+            <div
+              className={`${isColor ? "btn-color" : null} ${
+                isDisable ? "disable" : null
+              }bg-white h-2 w-2 rounded-full`}
+            ></div>
+            <div
+              className={`${
+                isColor ? "btn-color" : null
+              } h-2 w-2 rounded-full bg-white`}
+            ></div>
+            <div
+              className={`${isColor ? "btn-color" : null} ${
+                isDisable ? "disable" : null
+              }bg-white h-2 w-2 rounded-full`}
+            ></div>
+            <div
+              className={`${
+                isColor ? "btn-color" : null
+              } h-2 w-2 rounded-full bg-white`}
+            ></div>
+            <div
+              className={`${isColor ? "btn-color" : null} ${
+                isDisable ? "disable" : null
+              }bg-white h-2 w-2 rounded-full`}
+            ></div>
+            <div
+              className={`${
+                isColor ? "btn-color" : null
+              } h-2 w-2 rounded-full bg-white`}
+            ></div>
+          </div>
+        </div>
 
-    let links = [
-        {name:"Programm",link:"/"},
-        {name:"Expert*innen",link:"/"},
-        {name:"Über uns",link:"/"},
-        {name:"Kontakt",link:"/"},
-        {name:"Archiv",link:"/"},
-    ]
-    
-    return(
-        <nav>
-            <div className="">
-                <div className="logo-img w-[100px] h-[86px] md:w-[150px] md:h-[113px]">
-                <img src={nullPlusLogo} alt="nullplusein logo" />
-                </div>
+        <div className="nav-link flex flex-row items-start justify-between ">
+          <div>
+            <a
+              ref={(el) => (titleHeading = el)}
+              href="{#}"
+              className="sitems-center flex translate-y-3 transform space-x-2 pb-4 font-Melno text-sm font-bold text-pureGreen opacity-0 md:text-[22px]"
+            >
+              {" "}
+              Festival für Diversität
+              <i className="px-2 text-sm font-bold md:text-[22px]">+</i>
+              Komplexität
+            </a>
+            <a
+              href="{#}"
+              className="font-Melno text-sm font-bold text-pureGreen md:text-[22px]"
+            >
+              4 - 20 Oktober 2022
+            </a>
+          </div>
 
-                <div className="nav-link flex justify-between items-start flex-row ">
-                    <div>
-                    <a href="{#}" className="flex text-14 md:text-[24px] items-center text-pureGreen font-semibold"> Festival für Diversität <span> <svg width="24px" height="24px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M6 12h6m6 0h-6m0 0V6m0 6v6" stroke="#162C13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>  Komplexität</a>
-                    <a href="{#}" className="text-pureGreen text-sm md:text-lg mt-4 font-semibold font-Melno">4 - 20 Oktober 2022</a>
-                    </div>
-
-                  
-
-                    <ul className={`${isActive ? "overlay-close" : null} links invisible  lg:visible transition-all   pl-5 fixed flex flex-col top-0  left-[100%] lg:left-0 duration-700 md:duration-[0ms] justify-center w-full  h-screen lg:h-min bg-pureGreen space-y-5 lg:pl-0 lg:space-y-0 lg:w-auto lg:relative lg:flex lg:flex-row   lg:bg-transparent  lg:space-x-10`}>
-                        {
-                            links.map((link)=>(
-                                <li><a key={link.id} href={link.link} className="text-Melno text-5xl text-white  lg:text-pureGreen lg:text-2xl font-semibold">{link.name}</a></li>
-                            ))
-                        }
-                    </ul> 
-        
-                  
-
-                    <div className={ ` grid-btn grid grid-cols-3 grid-rows-3 gap-1 md:grid z-10 lg:hidden cursor-pointer`} onClick={navBtn}>
-                        <div className={`${isColor ? "btn-color" : null} bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} ${isDisable ? "disable" : null}bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} ${isDisable ? "disable" : null}bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} ${isDisable ? "disable" : null}bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} ${isDisable ? "disable" : null}bg-white h-2 w-2 rounded-full`}></div>
-                        <div className={`${isColor ? "btn-color" : null} bg-white h-2 w-2 rounded-full`}></div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        </nav>
-    )
+          <ul
+            className={`${
+              isActive ? "overlay-close" : null
+            } links invisible fixed -top-2 left-[100%] z-10 flex h-screen  w-full translate-y-2 transform flex-col justify-center  space-y-5 bg-pureGreen pl-5  transition-all duration-700  md:duration-[0ms] lg:visible lg:relative lg:left-0 lg:flex lg:h-min lg:w-auto lg:flex-row lg:space-y-0 lg:space-x-10   lg:bg-transparent  lg:pl-0`}
+          >
+            {links.map((link, i) => (
+              <li key={i}>
+                <a
+                  href={link.link}
+                  className="text-Melno links font-Melno text-3xl font-bold text-white hover:underline hover:duration-75 lg:text-[22px] lg:text-pureGreen"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }

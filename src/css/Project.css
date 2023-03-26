@@ -1,0 +1,16 @@
+s .carousel-status {
+  display: none;
+}
+
+.carousel .control-dots .dot.selected {
+  width: 20px;
+  height: 10px;
+  background: #162c13;
+  border-radius: 29px;
+  box-shadow: none;
+}
+
+.carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  display: none;
+}
