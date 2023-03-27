@@ -56,9 +56,6 @@ export default function Project() {
           </div>
         </div>
       </div>
-      <p className="mb-6 text-center text-sm font-bold text-pureGreen md:text-[22px]">
-        Ab nächste Woche findet ihr hier das Festivalprogramm 2022.
-      </p>
     </section>
   );
 }
